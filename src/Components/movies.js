@@ -1,18 +1,19 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import MovieCard from "../Component/MovieCard";
-import movieList from "../moviesList";
+import MovieCard from "./MovieCard";
+import movieList from "../movieList";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const { subject } = useParams();
 
   useEffect(() => {
-   
-    const filteredMovies = movieList.movies.filter(
-      (movie) => movie.title.toLowerCase().includes(subject.toLowerCase())
-    );
+    const filteredMovies = subject
+      ? movieList.movies.filter((movie) =>
+          movie.title.toLowerCase().includes(subject.toLowerCase())
+        )
+      : movieList.movies;
     setMovies(filteredMovies);
   }, [subject]);
 

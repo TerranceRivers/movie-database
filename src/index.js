@@ -4,8 +4,8 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Movies from "./Component/movies";
-import EditMovieForm from "./Component/editForm";
+import Movies from "./Components/movies";
+import EditMovieForm from "./Components/editForm";
 const router = createBrowserRouter([
   {
     path: "/",
