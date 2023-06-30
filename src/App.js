@@ -1,13 +1,24 @@
-import React from 'react';
-import NavBar from './Components/NavBar';
-import './App.css';
-import Movies from './Components/movies';
+import React, { useState, useEffect } from 'react';
+import { Outlet } from 'react-router-dom';
+import movieList from './movieList';
+
 function App() {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    setMovies(movieList.movies);
+  }, []);
+
+  const updateMovie = (updatedMovie) => {
+    const updatedMovies = movies.map(movie => {
+      return movie.id === updatedMovie.id ? updatedMovie : movie;
+    });
+    setMovies(updatedMovies);
+  }
+
   return (
     <div className="App">
-
-     <NavBar/>
-   
+      <Outlet movies={movies} updateMovie={updateMovie} />
     </div>
   );
 }

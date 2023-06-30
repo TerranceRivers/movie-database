@@ -1,25 +1,44 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import Movies from "./Components/movies";
-import MovieDetails from "./Components/movieDetails";
-import EditMovieForm from "./Components/editForm";
 
-ReactDOM.render(
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { createBrowserRouter, RouterProvider} from 'react-router-dom';
+import './index.css';
+import App from './App';
+import Movies from './Components/movies';
+import MovieDetails from './Components/movieDetails';
+import EditForm from './Components/editForm';
+import reportWebVitals from './reportWebVitals';
+
+const router = createBrowserRouter([
+
+  {
+    path: '/',
+    element: <App />,
+    children: [
+      {
+        index: true,
+        element: <Movies />,
+      },
+      {
+        path: 'movies/add',
+        element: <EditForm />,
+      },
+      {
+        path: 'movies/:id',
+        element: <MovieDetails />,
+      },
+    ],
+  },
+]);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
   <React.StrictMode>
-    <Router>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/movies" element={<Movies />} />
-        <Route path="/movies/:id" element={<MovieDetails />} />
-        <Route path="/movies/add" element={<EditMovieForm />} />
-      </Routes>
-    </Router>
-  </React.StrictMode>,
-  document.getElementById("root")
+     <RouterProvider router={router} />
+  </React.StrictMode>
 );
 
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
