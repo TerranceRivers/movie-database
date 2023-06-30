@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import movieList from "../movieList";
 import { useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
-
+import { v4 as uuidv4 } from "uuid";
 const AddMovie = () => {
   const [formData, setFormData] = useState({
     title: "",
@@ -22,7 +22,7 @@ const AddMovie = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newMovie = {
-      id: movieList.movies.length + 1,
+      id:  uuidv4(),
       title: formData.title,
       year: formData.year,
       runtime: formData.runtime,

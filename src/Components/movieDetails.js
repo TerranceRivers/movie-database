@@ -6,7 +6,7 @@ import EditForm from "./editForm";
 
 const MovieDetails = ({ movies, updateMovie }) => {
   const { id } = useParams();
-  const movie = movieList.movies.find((movie) => movie.id === Number(id));
+  const movie = movieList.movies.find((movie) => movie.id.toString() === id);
   const [isEditing, setIsEditing] = useState(false);
   const navigate = useNavigate();
   if (!movie) {
