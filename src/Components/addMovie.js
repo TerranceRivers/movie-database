@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import movieList from "../movieList";
 import { useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
+import { v4 as uuidv4 } from 'uuid';
 
 const AddMovie = () => {
   const [formData, setFormData] = useState({
+    id: uuidv4(),
     title: "",
     year: "",
     runtime: "",
