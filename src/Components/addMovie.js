@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import movieList from "../movieList";
 import { useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
-import { v4 as uuidv4 } from 'uuid';
 
 const AddMovie = () => {
   const [formData, setFormData] = useState({
-    id: uuidv4(),
     title: "",
     year: "",
     runtime: "",
@@ -36,64 +34,74 @@ const AddMovie = () => {
     navigate("/");
   };
 
-  return ( <div>
-   <div> <NavBar /></div>
-    <form onSubmit={handleSubmit}>
-      <label>
-        Title:
-        <input
-          type="text"
-          name="title"
-          value={formData.title}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Year:
-        <input
-          type="number"
-          name="year"
-          value={formData.year}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Runtime:
-        <input
-          type="text"
-          name="runtime"
-          value={formData.runtime}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Cast:
-        <input
-          type="text"
-          name="cast"
-          value={formData.cast}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Director:
-        <input
-          type="text"
-          name="director"
-          value={formData.director}
-          onChange={handleChange}
-        />
-      </label>
-      <label>
-        Plot:
-        <textarea
-          name="plot"
-          value={formData.plot}
-          onChange={handleChange}
-        ></textarea>
-      </label>
-      <button type="submit">Add Movie</button>
-    </form>
+  return (<div>
+     <NavBar />
+    <div className="form-container">
+     
+      <form onSubmit={handleSubmit}>
+        <h2>Add Movie</h2>
+        <div className="form-group">
+          <label htmlFor="title">Title:</label>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            value={formData.title}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="year">Year:</label>
+          <input
+            type="number"
+            name="year"
+            id="year"
+            value={formData.year}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="runtime">Runtime:</label>
+          <input
+            type="text"
+            name="runtime"
+            id="runtime"
+            value={formData.runtime}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="cast">Cast:</label>
+          <input
+            type="text"
+            name="cast"
+            id="cast"
+            value={formData.cast}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="director">Director:</label>
+          <input
+            type="text"
+            name="director"
+            id="director"
+            value={formData.director}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="plot">Plot:</label>
+          <textarea
+            name="plot"
+            id="plot"
+            value={formData.plot}
+            onChange={handleChange}
+          ></textarea>
+        </div>
+        <button type="submit">Add Movie</button>
+      </form>
+    </div>
     </div>
   );
 };

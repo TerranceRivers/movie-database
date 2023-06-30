@@ -44,6 +44,7 @@ const EditForm = ({ movie, setIsEditing }) => {
   };
 
   return (
+    <div className="form-container">
     <form onSubmit={handleSubmit}>
       <label>
         Title:
@@ -90,6 +91,8 @@ const EditForm = ({ movie, setIsEditing }) => {
           onChange={handleChange}
         />
       </label>
+      
+      <div>
       <label>
         Plot:
         <textarea
@@ -98,6 +101,7 @@ const EditForm = ({ movie, setIsEditing }) => {
           onChange={handleChange}
         ></textarea>
       </label>
+      </div>
       <div>
         <button type="submit">Save</button>
         <button type="button" onClick={handleCancel}>
@@ -105,6 +109,7 @@ const EditForm = ({ movie, setIsEditing }) => {
         </button>
       </div>
     </form>
+    </div>
   );
 };
 
