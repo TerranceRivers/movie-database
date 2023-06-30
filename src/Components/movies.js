@@ -18,13 +18,14 @@ const Movies = () => {
     setMovies(filteredMovies);
   }, [subject]);
 
-  return (
-    <div>
-      <NavBar />
+  return (<div>
+    <NavBar />
+    <div className="movie-container">
+      
       {movies.map((movie) => (
         <MovieCard key={movie.id} movie={movie} />
       ))}
-    </div>
+    </div></div>
   );
 };
 

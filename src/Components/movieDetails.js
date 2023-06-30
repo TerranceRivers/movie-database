@@ -18,29 +18,38 @@ const MovieDetails = ({ movies, updateMovie }) => {
   };
 
   const handleDelete = () => {
-    const remainingMovies = movieList.movies.filter(mov => mov.id !== movie.id);
+    const remainingMovies = movieList.movies.filter(
+      (mov) => mov.id !== movie.id
+    );
     movieList.movies = remainingMovies;
-    navigate('/');
+    navigate("/");
   };
 
   return (
     <div>
+      {" "}
       <NavBar />
-      <h2>{movie.title}</h2>
-      <p>Year: {movie.year}</p>
-      <p>Runtime: {movie.runtime}</p>
-      <p>Cast: {movie.cast.join(", ")}</p>
-      <p>Director: {movie.director}</p>
-      <p>Plot: {movie.plot}</p>
-      <div>
-        {isEditing ? (
-          <EditForm movie={movie} setIsEditing={setIsEditing} updateMovie={updateMovie} />
-        ) : (
-          <div>
-            <button onClick={handleEdit}>Edit</button>
-            <button onClick={handleDelete}>Delete</button>
-          </div>
-        )}
+      <div className="movie-details-card" >
+        <h2>{movie.title}</h2>
+        <p>Year: {movie.year}</p>
+        <p>Runtime: {movie.runtime}</p>
+        <p>Cast: {movie.cast.join(", ")}</p>
+        <p>Director: {movie.director}</p>
+        <p>Plot: {movie.plot}</p>
+        <div>
+          {isEditing ? (
+            <EditForm
+              movie={movie}
+              setIsEditing={setIsEditing}
+              updateMovie={updateMovie}
+            />
+          ) : (
+            <div>
+              <button onClick={handleEdit}>Edit</button>
+              <button onClick={handleDelete}>Delete</button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -1,7 +1,9 @@
 import React from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import ReactDOM from "react-dom";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
+import "../src/App.css"
 import App from "./App";
 import Movies from "./Components/movies";
 import MovieDetails from "./Components/movieDetails";

@@ -15,7 +15,7 @@ const MovieCard = ({ movie }) => {
           <strong>Director:</strong> {movie.director}
         </p>
       </div>
-     
+      
     </div>
   );
 };
