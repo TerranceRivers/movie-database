@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import movieList from "../movieList";
 
 const EditForm = ({ movie, setIsEditing }) => {
+  
   const [formData, setFormData] = useState({
     title: movie.title,
     year: movie.year,

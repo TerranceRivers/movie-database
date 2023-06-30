@@ -16,6 +16,9 @@ function App() {
     setMovies(updatedMovies);
   }
 
+  const addMovie = (newMovie) => {
+    setMovies(prevMovies => [...prevMovies, newMovie]);
+  };
   return (
     <div className="App">
       <Outlet movies={movies} updateMovie={updateMovie} />

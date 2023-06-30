@@ -1,32 +1,28 @@
-
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { createBrowserRouter, RouterProvider} from 'react-router-dom';
-import './index.css';
-import App from './App';
-import Movies from './Components/movies';
-import MovieDetails from './Components/movieDetails';
-import EditForm from './Components/editForm';
-import reportWebVitals from './reportWebVitals';
-
+import React from "react";
+import ReactDOM from "react-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./index.css";
+import App from "./App";
+import Movies from "./Components/movies";
+import MovieDetails from "./Components/movieDetails";
+import EditForm from "./Components/editForm";
+import reportWebVitals from "./reportWebVitals";
+import AddMovie from "./Components/addMovie";
 const router = createBrowserRouter([
-
   {
-    path: '/',
+    path: "/",
     element: <App />,
     children: [
       {
         index: true,
         element: <Movies />,
       },
+    
       {
-        path: 'movies/add',
-        element: <EditForm />,
-      },
-      {
-        path: 'movies/:id',
+        path: "movies/:id",
         element: <MovieDetails />,
       },
+      { path: "movies/add", element: <AddMovie /> },
     ],
   },
 ]);
@@ -34,7 +30,7 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-     <RouterProvider router={router} />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
